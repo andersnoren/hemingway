@@ -5,8 +5,6 @@
 	<head>
 		
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
-		 
 		<?php wp_head(); ?>
 	
 	</head>
@@ -95,25 +93,27 @@
 																			
 							wp_nav_menu( array( 
 							
-								'container' => '', 
-								'items_wrap' => '%3$s',
-								'theme_location' => 'primary', 
-								'walker' => new hemingway_nav_walker
+								'container' 		=> '', 
+								'items_wrap' 		=> '%3$s',
+								'theme_location' 	=> 'primary', 
+								'walker' 			=> new hemingway_nav_walker
 															
-							) ); } else {
+							) );
+
+						} else {
 						
 							wp_list_pages( array(
 							
 								'container' => '',
-								'title_li' => ''
+								'title_li' 	=> ''
 							
 							));
 							
 						} ?>
-						
-						<div class="clear"></div>
 												
 					 </ul>
+
+					 <div class="clear"></div>
 					 
 					 <ul class="mobile-menu">
 					
