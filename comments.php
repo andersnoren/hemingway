@@ -11,8 +11,8 @@
 			<h2 class="comments-title">
 			
 				<?php 
-				$comment_count = count($wp_query->comments_by_type['comment']);
-				printf( _n( '%s Comment', '%s Comments', $comment_count, 'hemingway' ), $comment_count ); 
+				$comment_count = count( $wp_query->comments_by_type['comment'] );
+				printf( _n( '%s Comment', '%s Comments', $comment_count, 'hemingway' ), absint( $comment_count ) ); 
 				?>
 				
 			</h2>
@@ -34,13 +34,18 @@
                         
 							<?php 
 							$pingback_count = count( $wp_query->comments_by_type['pings'] );
-							printf( _n( '%s Pingback', '%s Pingbacks', $pingback_count, 'hemingway' ), $pingback_count ); 
+							printf( _n( '%s Pingback', '%s Pingbacks', $pingback_count, 'hemingway' ), absint( $pingback_count ) ); 
 							?>
 						
 						</h3>
 					
 						<ol class="pingbacklist">
-						    <?php wp_list_comments( array( 'type' => 'pings', 'callback' => 'hemingway_comment' ) ); ?>
+							<?php 
+							wp_list_comments( array( 
+								'type' 		=> 'pings', 
+								'callback' 	=> 'hemingway_comment' 
+							) ); 
+							?>
 						</ol>
 						
 					</div>

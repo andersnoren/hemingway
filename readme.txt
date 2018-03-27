@@ -49,6 +49,7 @@ Version 1.60 (2018-03-27)
 - Updated footer colors to make sure they pass the WCAG AA standard
 - Changed ternarys to be full-length, to retain compatibility with older PHP versions
 - Set links within .gallery-caption and .wp-caption-text to be inline
+- General cleanup
 
 Version 1.59 (2017-12-03)
 -------------------------
