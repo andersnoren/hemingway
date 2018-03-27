@@ -41,6 +41,11 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 1.61 (2018-03-27)
+-------------------------
+- Updated footer colors to have stronger contrast
+- Updated header colors to also pass the WCAG AA standard
+
 Version 1.60 (2018-03-27)
 -------------------------
 - Removed the viewport meta tag from the head
