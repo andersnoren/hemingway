@@ -41,6 +41,10 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 1.62 (2018-03-28)
+-------------------------
+- Version bump due to issues with the theme uploader on 2018-03-27
+
 Version 1.61 (2018-03-27)
 -------------------------
 - Updated footer colors to have stronger contrast
