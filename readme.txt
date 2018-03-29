@@ -41,6 +41,10 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 1.63 (2018-03-29)
+-------------------------
+- Adjusted viewport meta tag element from 1.60
+
 Version 1.62 (2018-03-28)
 -------------------------
 - Version bump due to issues with the theme uploader on 2018-03-27
