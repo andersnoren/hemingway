@@ -637,25 +637,25 @@ if ( ! function_exists( 'hemingway_add_gutenberg_features' ) ) {
 		add_theme_support( 'editor-font-sizes', array(
 			array(
 				'name' 		=> _x( 'Small', 'Name of the small font size in Gutenberg', 'hemingway' ),
-				'shortName' => _x( 'S', 'hemingway' ),
+				'shortName' => _x( 'S', 'Short name of the small font size in the Gutenberg editor.', 'hemingway' ),
 				'size' 		=> 16,
 				'slug' 		=> 'small'
 			),
 			array(
 				'name' 		=> _x( 'Regular', 'Name of the regular font size in Gutenberg', 'hemingway' ),
-				'shortName' => _x( 'M', 'hemingway' ),
+				'shortName' => _x( 'M', 'Short name of the regular font size in the Gutenberg editor.', 'hemingway' ),
 				'size' 		=> 19,
 				'slug' 		=> 'regular'
 			),
 			array(
 				'name' 		=> _x( 'Large', 'Name of the large font size in Gutenberg', 'hemingway' ),
-				'shortName' => _x( 'L', 'hemingway' ),
+				'shortName' => _x( 'L', 'Short name of the large font size in the Gutenberg editor.', 'hemingway' ),
 				'size' 		=> 24,
 				'slug' 		=> 'large'
 			),
 			array(
 				'name' 		=> _x( 'Larger', 'Name of the larger font size in Gutenberg', 'hemingway' ),
-				'shortName' => _x( 'XL', 'hemingway' ),
+				'shortName' => _x( 'XL', 'Short name of the larger font size in the Gutenberg editor.', 'hemingway' ),
 				'size' 		=> 32,
 				'slug' 		=> 'larger'
 			)

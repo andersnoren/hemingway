@@ -41,6 +41,10 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 1.67 (2018-09-08)
+-------------------------
+- Fixed four _x() translateable string without instructions
+
 Version 1.66 (2018-09-08)
 -------------------------
 - The Gutenberg [G] update!
