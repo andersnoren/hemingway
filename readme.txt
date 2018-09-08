@@ -49,6 +49,8 @@ Version 1.66 (2018-09-08)
 - [G] Added a Gutenberg color palette, with custom accent color support
 - [G] Added Gutenberg font sizes
 – Refined the custom CSS code for the accent color to be less messy
+– Made it possible to deactivate Google Fonts by a translateable string, same as the TwentyXXX implementation
+- Made the name of the "primary" menu theme location translateable
 
 Version 1.65 (2018-06-01)
 -------------------------

@@ -30,7 +30,6 @@ if ( ! function_exists( 'hemingway_setup' ) ) {
 			'default-image' => get_template_directory_uri() . '/images/header.jpg',
 			'uploads'       => true,
 			'header-text'  	=> false
-			
 		);
 		add_theme_support( 'custom-header', $args );
 		
@@ -42,7 +41,7 @@ if ( ! function_exists( 'hemingway_setup' ) ) {
 		if ( ! isset( $content_width ) ) $content_width = 676;
 		
 		// Add nav menu
-		register_nav_menu( 'primary', 'Primary Menu' );
+		register_nav_menu( 'primary', __( 'Primary Menu', 'hemingway' ) );
 		
 		// Make the theme translation ready
 		load_theme_textdomain( 'hemingway', get_template_directory() . '/languages' );
@@ -80,8 +79,34 @@ if ( ! function_exists( 'hemingway_load_style' ) ) {
 
 	function hemingway_load_style() {
 		if ( ! is_admin() ) {
-			wp_enqueue_style( 'hemingway_googleFonts', '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Raleway:700,400' );
-			wp_enqueue_style( 'hemingway_style', get_template_directory_uri() . '/style.css' );
+
+			$dependencies = array();
+
+			/**
+			 * Translators: If there are characters in your language that are not
+			 * supported by the theme fonts, translate this to 'off'. Do not translate
+			 * into your own language.
+			 */
+			$google_fonts = _x( 'on', 'Google Fonts: on or off', 'hemingway' );
+
+			if ( 'off' !== $google_fonts ) {
+				$font_families = array();
+
+				$font_families[] = 'Lato:400,700,400italic,700italic|Raleway:700,400';
+
+				$query_args = array(
+					'family' => urlencode( implode( '|', $font_families ) )
+				);
+
+				$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+
+				wp_register_style( 'hemingway_googleFonts', $fonts_url, array(), null );
+
+				$dependencies[] = 'hemingway_googleFonts';
+			}
+
+			wp_enqueue_style( 'hemingway_style', get_template_directory_uri() . '/style.css', $dependencies );
+
 		}
 	}
 	add_action( 'wp_print_styles', 'hemingway_load_style' );
@@ -97,9 +122,21 @@ if ( ! function_exists( 'hemingway_load_style' ) ) {
 if ( ! function_exists( 'hemingway_add_editor_styles' ) ) {
 
 	function hemingway_add_editor_styles() {
+
 		add_editor_style( 'hemingway-editor-style.css' );
-		$font_url = '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Raleway:700,400';
-		add_editor_style( str_replace( ',', '%2C', $font_url ) );
+
+		/**
+		 * Translators: If there are characters in your language that are not
+		 * supported by the theme fonts, translate this to 'off'. Do not translate
+		 * into your own language.
+		 */
+		$google_fonts = _x( 'on', 'Google Fonts: on or off', 'hemingway' );
+
+		if ( 'off' !== $google_fonts ) {
+			$font_url = '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Raleway:700,400';
+			add_editor_style( str_replace( ',', '%2C', $font_url ) );
+		}
+
 	}
 	add_action( 'init', 'hemingway_add_editor_styles' );
 
@@ -254,7 +291,7 @@ if ( ! function_exists( 'hemingway_custom_more_link' ) ) {
 if ( ! function_exists( 'hemingway_admin_css' ) ) {
 
 	function hemingway_admin_css() { ?>
-	<style type="text/css">
+		<style type="text/css">
 			#postimagediv #set-post-thumbnail img {
 				max-width: 100%;
 				height: auto;
@@ -557,7 +594,6 @@ if ( ! function_exists( 'hemingway_add_gutenberg_features' ) ) {
 
 	function hemingway_add_gutenberg_features() {
 
-
 		/* Gutenberg Feature Opt-Ins --------------------------------------- */
 
 		add_theme_support( 'align-wide' );
@@ -640,11 +676,25 @@ if ( ! function_exists( 'hemingway_block_editor_styles' ) ) {
 
 	function hemingway_block_editor_styles() {
 
-		// Register Google Fonts
-		wp_register_style( 'hemingway-block-editor-styles-font', '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Raleway:700,400', false, 1.0, 'all' );
+		$dependencies = array();
+
+		/**
+		 * Translators: If there are characters in your language that are not
+		 * supported by the theme fonts, translate this to 'off'. Do not translate
+		 * into your own language.
+		 */
+		$google_fonts = _x( 'on', 'Google Fonts: on or off', 'hemingway' );
+
+		if ( 'off' !== $google_fonts ) {
+
+			// Register Google Fonts
+			wp_register_style( 'hemingway-block-editor-styles-font', '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Raleway:700,400', false, 1.0, 'all' );
+			$dependencies[] = 'hemingway-block-editor-styles-font';
+
+		}
 
 		// Enqueue the editor styles
-		wp_enqueue_style( 'hemingway-block-editor-styles', get_theme_file_uri( '/hemingway-gutenberg-editor-style.css' ), array( 'hemingway-block-editor-styles-font' ), '1.0', 'all' );
+		wp_enqueue_style( 'hemingway-block-editor-styles', get_theme_file_uri( '/hemingway-gutenberg-editor-style.css' ), $dependencies, '1.0', 'all' );
 	}
 	add_action( 'enqueue_block_editor_assets', 'hemingway_block_editor_styles' );
 
