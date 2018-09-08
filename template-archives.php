@@ -20,13 +20,17 @@ get_header(); ?>
 					
 						<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
 						
-							<?php the_post_thumbnail( 'post-image' ); ?>
+							<?php 
 							
-							<?php if ( ! empty( get_post( get_post_thumbnail_id() )->post_excerpt ) ) : ?>
+							the_post_thumbnail( 'post-image' );
+
+							$image_caption = get_post( get_post_thumbnail_id() )->post_excerpt;
+							
+							if ( $image_caption ) : ?>
 											
 								<div class="media-caption-container">
 								
-									<p class="media-caption"><?php echo get_post( get_post_thumbnail_id() )->post_excerpt; ?></p>
+									<p class="media-caption"><?php echo $image_caption; ?></p>
 									
 								</div>
 								
@@ -57,16 +61,16 @@ get_header(); ?>
 					            <ul>
 									<?php 
 									
-									$archive_30 = get_posts( array(
+									$archive_posts = get_posts( array(
 										'post_status'		=> 'publish',
 										'posts_per_page'	=> 30,
 									) );
 
-						            foreach( $archive_30 as $archive_post ) : ?>
+						            foreach ( $archive_posts as $archive_post ) : ?>
 						                <li>
 						                	<a href="<?php echo get_the_permalink( $archive_post->ID ); ?>">
 						                		<?php echo get_the_title( $archive_post->ID );?> 
-						                		<span>(<?php the_time( get_option( 'date_format' ), $archive_post->ID ); ?>)</span>
+						                		<span>(<?php echo get_the_time( get_option( 'date_format' ), $archive_post->ID ); ?>)</span>
 						                	</a>
 						                </li>
 						            <?php endforeach; ?>
@@ -87,7 +91,8 @@ get_header(); ?>
 					                
 					                if ( $tags ) {
 					                    foreach ( $tags as $tag ) {
-					                 	   echo '<li><a href="' . get_tag_link( $tag->term_id ) . '" title="' . sprintf( __( "View all posts in %s", 'hemingway' ), $tag->name ) . '" ' . '>' . $tag->name.'</a></li> ';
+											/* Translators: %s = The name of the tag */
+											echo '<li><a href="' . get_tag_link( $tag->term_id ) . '" title="' . sprintf( __( "View all posts in %s", 'hemingway' ), $tag->name ) . '" ' . '>' . $tag->name.'</a></li> ';
 					                    }
 									}
 									

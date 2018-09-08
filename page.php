@@ -16,9 +16,13 @@
 					
 						<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>">
 						
-							<?php the_post_thumbnail('post-image'); ?>
+							<?php 
 							
-							<?php if ( ! empty( get_post( get_post_thumbnail_id() )->post_excerpt ) ) : ?>
+							the_post_thumbnail( 'post-image' );
+
+							$image_caption = get_post( get_post_thumbnail_id() )->post_excerpt;
+							
+							if ( $image_caption ) : ?>
 											
 								<div class="media-caption-container">
 								

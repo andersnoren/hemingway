@@ -273,7 +273,9 @@ if ( ! function_exists( 'hemingway_admin_css' ) ) {
 
 
 if ( ! function_exists( 'hemingway_comment' ) ) {
+
 	function hemingway_comment( $comment, $args, $depth ) {
+
 		$GLOBALS['comment'] = $comment;
 		switch ( $comment->comment_type ) :
 			case 'pingback' :
@@ -337,7 +339,9 @@ if ( ! function_exists( 'hemingway_comment' ) ) {
 		<?php
 			break;
 		endswitch;
+		
 	}
+
 }
 
 

@@ -41,6 +41,15 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 1.65 (2018-06-01)
+-------------------------
+- Fixed the date output for the 30 most recent posts in template-archives.php
+- Fixed error in pre-PHP 5.5
+
+Version 1.64 (2018-05-24)
+-------------------------
+- Fixed output of cookie checkbox in comments
+
 Version 1.63 (2018-03-29)
 -------------------------
 - Adjusted viewport meta tag element from 1.60
