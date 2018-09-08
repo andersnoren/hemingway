@@ -51,6 +51,7 @@ Version 1.66 (2018-09-08)
 – Refined the custom CSS code for the accent color to be less messy
 – Made it possible to deactivate Google Fonts by a translateable string, same as the TwentyXXX implementation
 - Made the name of the "primary" menu theme location translateable
+- CSS formatting and other minor tweaks and fixes
 
 Version 1.65 (2018-06-01)
 -------------------------

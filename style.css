@@ -1104,7 +1104,7 @@ em, q { font-style: italic; }
 	max-width: 100%;
 }
 
-figure.wp-block-image {
+.wp-block-image {
 	margin: 0 0 1.1em 0;
 }
 
@@ -1160,12 +1160,15 @@ img.alignright,
 
 .post-content .wp-caption-text,
 .post-content .gallery-caption,
+.post-content .wp-block-image figcaption,
 .post-content figcaption {
 	color: #888;
+	display: block;
 	font-size: .85em;
 	font-style: italic;
 	padding-top: .5em;
 	text-align: center;
+	width: 100%;
 }
 
 .post-content .wp-caption-text a,
