@@ -126,7 +126,7 @@ table.wp-block-table {
 	border-collapse: collapse;
     border-spacing: 0;
     empty-cells: show;
-    font-size: 0.9em;
+    font-size: .9em;
     margin-bottom: 1.1em;
     width: 100%;
 }
