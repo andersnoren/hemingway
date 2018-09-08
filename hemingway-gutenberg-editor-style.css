@@ -1,0 +1,277 @@
+/*---------------------------------------------------------------------------------
+	Gutenberg editor styles for Hemingway
+---------------------------------------------------------------------------------*/
+
+
+/* Structure ---------------------------------------------- */
+
+
+.edit-post-visual-editor {
+	color: #444;
+	font-family: 'Lato', sans-serif;
+	font-size: 19px;
+}
+
+body.gutenberg-editor-page .editor-post-title__block,
+body.gutenberg-editor-page .editor-default-block-appender,
+body.gutenberg-editor-page .editor-block-list__block {
+    max-width: 676px;
+}
+
+body.gutenberg-editor-page .editor-block-list__block[data-align="wide"] {
+    max-width: 756px;
+}
+
+body.gutenberg-editor-page .editor-block-list__block[data-align="full"] {
+    max-width: none;
+}
+
+
+/* Typography --------------------------------------------- */
+
+
+.edit-post-visual-editor a {
+	color: #1abc9c;
+}
+
+.edit-post-visual-editor p,
+.editor-post-title__block .editor-post-title__input {
+	font-family: inherit;
+	font-size: inherit;
+}
+
+.wp-block-heading h1,
+.wp-block-heading h2,
+.wp-block-heading h3,
+.wp-block-heading h4,
+.wp-block-heading h5,
+.wp-block-heading h6 {
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.wp-block-heading h4,
+.wp-block-heading h5 {
+	font-weight: 400;
+}
+
+.wp-block-heading h1 { font-size: 2em; }
+.wp-block-heading h2 { font-size: 1.75em; }
+.wp-block-heading h3 { font-size: 1.5em; }
+.wp-block-heading h4 { font-size: 1.25em; }
+.wp-block-heading h5 { font-size: 1.1em; }
+
+.wp-block-heading h6 {
+	font-size: .9em;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.editor-post-title__block .editor-post-title__input {
+	font-size: 2.36em;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+p.has-drop-cap:not(:focus):first-letter {
+    font-size: 6.3em;
+    font-weight: 400;
+}
+
+
+/* Custom Text Sizes -------------------------------------- */
+
+
+.edit-post-visual-editor p.has-large-font-size,
+.edit-post-visual-editor p.has-larger-font-size {
+	line-height: 1.5;
+}
+
+
+/* Post Media --------------------------------------------- */
+
+
+.alignleft,
+.alignright {
+	margin-bottom: 1.2em;
+	max-width: 40%;
+}
+
+.wp-caption .alignleft,
+.wp-caption .alignright {
+	margin-bottom: 0;
+}
+
+.alignleft {
+	float: left;
+	margin-right: 1em;
+}
+
+.alignright {
+	float: right;
+	margin-left: 1em;
+}
+
+.wp-block-image figcaption {
+	font-size: 0.85em;
+	font-style: italic;
+}
+
+
+/* Table Block ---------------------------------------- */
+
+
+table.wp-block-table {
+	border: none;
+	border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    font-size: 0.9em;
+    margin-bottom: 1.1em;
+    width: 100%;
+}
+
+table.wp-block-table tbody {
+	border-top: 1px solid #DDD;
+}
+
+table.wp-block-table thead + tbody {
+	border-top: none;
+}
+
+.wp-block-table th,
+.wp-block-table td {
+	border: none;
+	border-bottom: 1px solid #DDD;
+	line-height: 120%;
+	margin: 0;
+	overflow: visible;
+	padding: 2%;
+}
+
+.wp-block-table caption {
+	color: inherit;
+	padding: 2%;
+	text-align: center;
+}
+
+.wp-block-table thead {
+	vertical-align: bottom;
+	white-space: nowrap;
+}
+
+.wp-block-table th {
+	color: inherit;
+	font-weight: bold;
+}
+
+.wp-block-table tbody > tr:nth-child(odd) > td { background: #f9f9f9; }
+
+
+/* Separator Block ---------------------------------------- */
+
+
+hr.wp-block-separator {
+	border: none !important;
+	color: #888;
+	margin: 2em auto;
+}
+
+.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+	background: #eee;
+	height: 4px;
+	max-width: none;
+	width: 50%;	
+}
+
+.wp-block-separator.is-style-wide {
+	background: #eee;
+	height: 4px;
+	width: 100%;
+}
+
+.wp-block-separator.is-style-dots:before {
+	color: inherit;
+}
+
+
+/* File Block --------------------------------------------- */
+
+
+.wp-block-file {
+	border: 1px solid #eee;
+	border-radius: 3px;
+	padding: 1em;
+}
+
+.wp-block-file__content-wrapper {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+.wp-block-file .wp-block-file__textlink {
+	color: inherit;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.wp-block-file__button {
+	border-radius: 4px;
+	color: #fff;
+}
+
+
+/* Quote Block -------------------------------------------- */
+
+
+.wp-block-quote:not(.is-large):not(.is-style-large) {
+	border: none;
+	padding: 1.1em;
+}
+
+.wp-block-quote {
+	background: #eee;
+	border: none;
+	color: #666;
+	font-family: 'Raleway', 'Helvetica Neue', sans-serif;
+	line-height: 150%;
+	padding: 1.1em;
+}
+
+cite {
+	color: #666;
+	font-weight: 700;
+	letter-spacing: 1px;
+	line-height: 140%;
+	text-transform: uppercase;
+}
+
+.wp-block-quote cite {
+	font-size: .8em;
+}
+
+.wp-block-quote cite:before {
+	content: "— ";
+}
+
+
+/* Pullquote Block ---------------------------------------- */
+
+
+.wp-block-pullquote cite {
+	font-size: .8em;
+	font-style: normal;
+	font-weight: 700;
+}
+
+
+/* Button Block ------------------------------------------- */
+
+
+.wp-block-button .wp-block-button__link {
+	border-radius: 4px;
+	font-size: 0.9em;
+	line-height: 1.1;
+	padding: 16px 18px;
+}

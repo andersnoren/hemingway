@@ -41,6 +41,15 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 1.66 (2018-09-08)
+-------------------------
+- The Gutenberg [G] update!
+- [G] Added front-end Gutenberg style
+- [G] Added Gutenberg editor styles
+- [G] Added a Gutenberg color palette, with custom accent color support
+- [G] Added Gutenberg font sizes
+– Refined the custom CSS code for the accent color to be less messy
+
 Version 1.65 (2018-06-01)
 -------------------------
 - Fixed the date output for the 30 most recent posts in template-archives.php

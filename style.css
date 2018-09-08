@@ -4,7 +4,7 @@
 
 	Theme Name: Hemingway
     Text Domain: hemingway
-	Version: 1.65
+	Version: 1.66
 	Description: Hemingway is a clean, beautiful and responsive two-column theme for bloggers. Features responsive design, retina-ready assets, full-width header image with parallax scrolling effect, custom accent color, custom logo upload, custom widgets (video, Flickr and Dribbble), page templates and translation-ready code. Demo: http://www.andersnoren.se/themes/hemingway/
 	Tags: blog, two-columns, right-sidebar, custom-colors, custom-header, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
 	Author: Anders Norén
@@ -814,13 +814,55 @@ a.more-link,
 
 
 /* -------------------------------------------------------------------------------- */
-/*	7. Post content
+/*	7. Post Content
 /* -------------------------------------------------------------------------------- */
 
 
-.post-content { font-size: 1.075em; }
+.post-content { 
+	font-size: 19px;
+}
 
-.post-content a:hover { text-decoration: underline; }
+.post-content > *:first-child { margin-top: 0; }
+.post-content *:last-child { margin-bottom: 0; }
+
+
+/* Gutenberg Accent Colors --------------------------------------- */
+
+.post-content .has-accent-color { color: #1ABC9C; }
+.post-content .has-accent-background-color { background-color: #1ABC9C; }
+
+.post-content .has-dark-gray-color { color: #444; }
+.post-content .has-dark-gray-background-color { background-color: #444; }
+
+.post-content .has-medium-gray-color { color: #666; }
+.post-content .has-medium-gray-background-color { background-color: #666; }
+
+.post-content .has-light-gray-color { color: #888; }
+.post-content .has-light-gray-background-color { background-color: #888; }
+
+.post-content .has-white-color { color: #fff; }
+.post-content .has-white-background-color { background-color: #fff; }
+
+
+/* Gutenberg Font Sizes --------------------------------------- */
+
+.post-content .has-small-font-size { font-size: .842em; }
+.post-content .has-regular-font-size { font-size: 1em; }
+
+.post-content .has-large-font-size,
+.post-content .has-larger-font-size {
+	line-height: 1.5;
+}
+
+.post-content .has-large-font-size { font-size: 1.263em; }
+.post-content .has-larger-font-size { font-size: 1.684em; }
+
+
+/* Content Typography --------------------------------------- */
+
+.post-content a:hover { 
+	text-decoration: underline; 
+}
 
 .post-content p,
 .post-content blockquote,
@@ -828,33 +870,36 @@ a.more-link,
 .post-content ol,
 .post-content address,
 .post-content dl,
-.post-content .wp-caption,
 .post-content pre {
 	line-height: 170%;
 	margin-bottom: 1.1em;
 }
 
-.post-content > *:first-child { margin-top: 0; }
-.post-content *:last-child { margin-bottom: 0; }
-
-.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
 	margin: 50px 0 25px;
 	color: #444;
 	line-height: 120%;
 }
 
-.post-content h1 { font-size: 2em; font-weight: 700; }
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+	font-weight: 700;
+}
 
-.post-content h2 { font-size: 1.75em; font-weight: 700; }
-
-.post-content h3 { font-size: 1.5em; font-weight: 700; }
-
+.post-content h1 { font-size: 2em; }
+.post-content h2 { font-size: 1.75em; }
+.post-content h3 { font-size: 1.5em; }
 .post-content h4 { font-size: 1.25em; }
-
 .post-content h5 { font-size: 1.1em; }
 
 .post-content h6 {
-	font-size: 0.9em;
+	font-size: .9em;
 	font-weight: bold;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -869,38 +914,9 @@ a.more-link,
 	margin-top: 25px;
 }
 
-.post-content blockquote {
-	padding: 1.1em;
-	line-height: 150%;
-	color: #666;
-	background: #EEE;
-	font-family: 'Raleway', 'Helvetica Neue', sans-serif;
-}
-
-.post-content cite {
-	font-weight: 700;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	line-height: 140%;
-	color: #666;
-}
-
-.post-content cite:before { content: "— "; }
-
-.post-content blockquote cite {
-	display: block;
-	margin-top: 1em;
-	font-size: 0.8em;
-}
-
-.post-content blockquote cite em { font-style: italic; font-weight: bold; }
-
-em, q {  font-style: italic;  }
-
-.post-content strong em,
-.post-content em strong {
-	font-weight: bold;
-	font-style: italic;
+p.has-drop-cap:not(:focus):first-letter {
+    font-size: 5.95em;
+    font-weight: 400;
 }
 
 .post-content big { font-size: 1.25em; }
@@ -915,7 +931,6 @@ code, kbd, pre {
 
 .post-content .highlight {
 	background: #fcf8a5;
-	width: auto;
 	display: inline;
 	padding: 2px 3px;
 }
@@ -930,12 +945,32 @@ code, kbd, pre {
 
 .post-content dl dt { font-weight: bold; }
 
-.post-content hr {
-	width: 50%;
+.post-content hr,
+hr.wp-block-separator {
+	background: #eee;
+	border: none;
+	color: #888;
 	height: 4px;
-	background: #EEE;
 	margin: 2em auto;
-	border: 0;
+	width: 50%;
+}
+
+.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+	max-width: none;
+	width: 50%;	
+}
+
+.wp-block-separator.is-style-wide {
+	width: 100%;
+}
+
+.wp-block-separator.is-style-dots {
+	background: none;
+	height: auto;
+}
+
+.wp-block-separator.is-style-dots:before {
+	color: inherit;
 }
 
 .post-content ul {
@@ -973,7 +1008,6 @@ code, kbd, pre {
 	margin-top: 0.5em;
 }
 
-
 .post-content ol > li:last-child,
 .post-content ul > li:last-child {
 	margin-bottom: 0;
@@ -996,14 +1030,88 @@ code, kbd, pre {
 }
 
 
-/* Post media --------------------------------------- */
+/* Post Quotes --------------------------------------- */
 
 
-.wp-caption { max-width: 100%; }
+.post-content blockquote:not(.wp-block-pullquote) {
+	background: #EEE;
+	color: #666;
+	font-family: 'Raleway', 'Helvetica Neue', sans-serif;
+	line-height: 150%;
+	padding: 1.1em;
+}
+
+.post-content cite {
+	color: #666;
+	font-weight: 700;
+	letter-spacing: 1px;
+	line-height: 140%;
+	text-transform: uppercase;
+}
+
+.post-content cite:before { content: "— "; }
+
+.post-content blockquote cite {
+	display: block;
+	font-size: .8em;
+	margin-top: 1em;
+}
+
+em, q { font-style: italic; }
+
+.post-content blockquote cite em,
+.post-content strong em,
+.post-content em strong { 
+	font-style: italic; 
+	font-weight: bold; 
+}
+
+.post-content .wp-block-pullquote {
+	border-bottom: 4px solid #444;
+	border-top: 4px solid #444;
+	margin: 2em 0;
+	padding: 3em 0;
+	text-align: center;
+}
+
+.post-content .wp-block-pullquote p {
+	line-height: 1.5;
+}
+
+.post-content .wp-block-pullquote.alignleft,
+.post-content .wp-block-pullquote.alignright {
+	margin-bottom: 1em;
+	margin-top: 0;
+	padding: 1em 0;
+}
+
+.post-content .wp-block-pullquote cite,
+.post-content .wp-block-pullquote p {
+	text-align: inherit;
+} 
+
+.post-content .wp-block-pullquote cite:before {
+	content: none;
+}
+
+
+/* Post Media --------------------------------------- */
+
+
+.post-content .wp-caption {
+	line-height: 170%;
+	margin-bottom: 1.1em;
+	max-width: 100%;
+}
+
+figure.wp-block-image {
+	margin: 0 0 1.1em 0;
+}
 
 .wp-caption a,
 .wp-caption img { display: block; }
 
+.wp-block-image img,
 img.alignleft,
 .alignleft img,
 img.aligncenter,
@@ -1015,6 +1123,12 @@ img.alignright,
 	border: 1px solid #EEE;
 }
 
+.post-content .alignwide,
+.post-content .alignfull {
+	margin: 2em 0 2em -5%;
+	max-width: none;
+	width: 110%;
+}
 
 .post-content .alignleft,
 .post-content .alignright {
@@ -1045,11 +1159,12 @@ img.alignright,
 }
 
 .post-content .wp-caption-text,
-.post-content .gallery-caption {
-	padding-top: 0.5em;
-	font-size: 0.85em;
-	font-style: italic;
+.post-content .gallery-caption,
+.post-content figcaption {
 	color: #888;
+	font-size: .85em;
+	font-style: italic;
+	padding-top: .5em;
 	text-align: center;
 }
 
@@ -1063,6 +1178,52 @@ img.alignright,
 	line-height: 24px;
 }
 
+.post-content ul.wp-block-gallery {
+	list-style: none;
+}
+
+.post-content ul.wp-block-gallery:not(.alignwide) {
+	margin-left: 0;
+}
+
+.wp-block-gallery img {
+	border: none;
+	padding: 0;
+}
+
+
+/* File Block --------------------------------------- */
+
+.wp-block-file {
+	align-items: center;
+	border: 1px solid #eee;
+	border-radius: 3px;
+	display: flex;
+	justify-content: space-between;
+	padding: 1em;
+}
+
+.wp-block-file a:not(.wp-block-file__button) {
+	color: inherit;
+	font-weight: 700;
+}
+
+.post-content a.wp-block-file__button {
+	background: #1abc9c;
+	border-radius: 4px;
+	color: #fff;
+}
+
+
+/* Button Block --------------------------------------- */
+
+.wp-block-button .wp-block-button__link {
+	border-radius: 4px;
+	font-size: 0.9em;
+	line-height: 1.1;
+	padding: 16px 18px;
+}
+
 
 /* Tables --------------------------------------- */
 
@@ -1074,6 +1235,14 @@ img.alignright,
     font-size: 0.9em;
     width: 100%;
     margin-bottom: 1.1em;
+}
+
+.post-content tbody {
+	border-top: 1px solid #DDD;
+}
+
+.post-content thead + tbody {
+	border-top: none;
 }
 
 .post-content th,
@@ -2031,7 +2200,7 @@ img#wpstats { display: none; }
 /* -------------------------------------------------------------------------------- */
 
 
-@media (max-width: 1040px) {
+@media ( max-width: 1040px ) {
 
 
 	body { font-size: 16px; }
@@ -2040,10 +2209,16 @@ img#wpstats { display: none; }
 	
 	.wrapper { 	margin-top: 7.5%; }
 
+	/* Post Content --------------------------------------- */
+
+	.post-content { 
+		font-size: 17px;
+	}
+
 
 }
 
-@media (max-width: 800px) {
+@media ( max-width: 800px ) {
 
 	body { font-size: 18px; } 
 
@@ -2062,6 +2237,7 @@ img#wpstats { display: none; }
 	
 	.footer { margin-top: 60px; }
 	
+
 	/* Navigation --------------------------------------- */
 	
 	.navigation-inner { max-width: 100%; }
@@ -2131,11 +2307,7 @@ img#wpstats { display: none; }
 		left: 0px;
 		background: #555;
 		border-radius: 2px 0 0 2px;
-		-webkit-transform: rotate(-45deg);
-		-moz-transform: rotate(-45deg);
-		-ms-transform: rotate(-45deg);
-		-o-transform: rotate(-45deg);
-		transform: rotate(-45deg);
+		transform: rotate( -45deg );
 	}
 	
 	.search-toggle.active .metal,
@@ -2214,6 +2386,34 @@ img#wpstats { display: none; }
 		background-color: #089D80;
 		border-color: #089D80;
 	}
+
+
+	/* Post Content --------------------------------------- */
+
+	.post-content { 
+		font-size: 19px;
+	}
+
+	.post-content .alignfull,
+	.wp-block-cover-image {
+		margin: 2.5em 0;
+		max-width: 100vw;
+		position: relative;
+			left: calc( 50% - 50vw );
+		width: 100vw;
+	}
+
+	.wp-block-image.alignfull img {
+		border: none;
+		padding: 0;
+	}
+
+	.post-content .alignwide {
+		margin-left: 0;
+		position: relative;
+			left: calc( 50% - 50vw + 20px );
+		width: calc( 100vw - 40px );
+	}
 	
 	/* Pagination --------------------------------------- */
 	
@@ -2222,7 +2422,7 @@ img#wpstats { display: none; }
 
 }
 
-@media (max-width: 700px) {
+@media ( max-width: 700px ) {
 
 	body { font-size: 16px; } 	
 	
@@ -2250,7 +2450,11 @@ img#wpstats { display: none; }
 	
 	.post-meta-bottom { margin-top: 40px; }
 	
-	/* Post content --------------------------------------- */
+	/* Post Content --------------------------------------- */
+
+	.post-content { 
+		font-size: 17px;
+	}
 	
 	.post-content h1,
 	.post-content h2,
@@ -2347,7 +2551,7 @@ img#wpstats { display: none; }
 	
 }
 
-@media (max-width: 500px) {
+@media ( max-width: 500px ) {
 	
 	
 	body { font-size: 15px; }
@@ -2381,6 +2585,7 @@ img#wpstats { display: none; }
 	
 	.media-caption:hover { background: #EEE; color: #666; }
 	
+
 	/* Single post --------------------------------------- */
 		
 	.post-cat-tags p { display: block; }
@@ -2399,7 +2604,8 @@ img#wpstats { display: none; }
 	.single .post-nav .post-nav-newer { border-top: 1px solid #EEE; }	
 	.single .post-nav .post-nav-newer h5 { text-align: left; }
 	
-	/* Post formats --------------------------------------- */
+
+	/* Post Formats --------------------------------------- */
 	
 	.blog .format-quote .post-content,
 	.archive .format-quote .post-content,
@@ -2419,7 +2625,12 @@ img#wpstats { display: none; }
 		font-size: 0.75rem;
 	}
 	
-	/* Post content --------------------------------------- */
+
+	/* Post Content --------------------------------------- */
+
+	.post-content { 
+		font-size: 16px;
+	}
 	
 	.post-content .alignleft,
 	.post-content .alignright { 
