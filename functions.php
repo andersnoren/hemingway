@@ -61,7 +61,7 @@ if ( ! function_exists( 'hemingway_load_javascript_files' ) ) {
 
 	function hemingway_load_javascript_files() {
 		if ( ! is_admin() ) {
-			wp_enqueue_script( 'hemingway_global', get_template_directory_uri() . '/js/global.js', array( 'jquery' ), '', true );
+			wp_enqueue_script( 'hemingway_global', get_template_directory_uri() . '/js/global.js', array( 'jquery' ), wp_get_theme( 'hemingway' )->get( 'Version' ), true );
 			if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
 		}
 	}
@@ -105,7 +105,7 @@ if ( ! function_exists( 'hemingway_load_style' ) ) {
 				$dependencies[] = 'hemingway_googleFonts';
 			}
 
-			wp_enqueue_style( 'hemingway_style', get_template_directory_uri() . '/style.css', $dependencies );
+			wp_enqueue_style( 'hemingway_style', get_template_directory_uri() . '/style.css', $dependencies, wp_get_theme( 'hemingway' )->get( 'Version' ) );
 
 		}
 	}
@@ -462,10 +462,6 @@ class Hemingway_Customize {
 
 		self::generate_css( '.blog-title a:hover', 'color', 'accent_color' );
 		self::generate_css( '.blog-menu a:hover', 'color', 'accent_color' );
-		self::generate_css( '.blog-search #searchsubmit', 'background-color', 'accent_color' );
-		self::generate_css( '.blog-search #searchsubmit', 'border-color', 'accent_color' );
-		self::generate_css( '.blog-search #searchsubmit:hover', 'background-color', 'accent_color' );
-		self::generate_css( '.blog-search #searchsubmit:hover', 'border-color', 'accent_color' );
 
 		self::generate_css( '.featured-media .sticky-post', 'background-color', 'accent_color' );
 		self::generate_css( '.post-title a:hover', 'color', 'accent_color' );
@@ -479,10 +475,6 @@ class Hemingway_Customize {
 		self::generate_css( '.post-content input[type="reset"]:hover', 'background-color', 'accent_color' );
 		self::generate_css( '.post-content input[type="button"]:hover', 'background-color', 'accent_color' );
 		self::generate_css( '.post-content fieldset legend', 'background-color', 'accent_color' );
-		self::generate_css( '.post-content .searchform #searchsubmit', 'background', 'accent_color' );
-		self::generate_css( '.post-content .searchform #searchsubmit', 'border-color', 'accent_color' );
-		self::generate_css( '.post-content .searchform #searchsubmit:hover', 'background', 'accent_color' );
-		self::generate_css( '.post-content .searchform #searchsubmit:hover', 'border-color', 'accent_color' );
 
 		// Gutenberg
 		self::generate_css( '.post-content a.wp-block-file__button', 'background-color', 'accent_color' );
@@ -527,10 +519,10 @@ class Hemingway_Customize {
 		self::generate_css( '.widget_recent_entries a:hover', 'color', 'accent_color' );
 		self::generate_css( '.widget_categories a', 'color', 'accent_color' );
 		self::generate_css( '.widget_categories a:hover', 'color', 'accent_color' );
-		self::generate_css( '.widget_search #searchsubmit', 'background', 'accent_color' );
-		self::generate_css( '.widget_search #searchsubmit', 'border-color', 'accent_color' );
-		self::generate_css( '.widget_search #searchsubmit:hover', 'background', 'accent_color' );
-		self::generate_css( '.widget_search #searchsubmit:hover', 'border-color', 'accent_color' );
+		self::generate_css( '.searchform #searchsubmit', 'background', 'accent_color' );
+		self::generate_css( '.searchform #searchsubmit', 'border-color', 'accent_color' );
+		self::generate_css( '.searchform #searchsubmit:hover', 'background', 'accent_color' );
+		self::generate_css( '.searchform #searchsubmit:hover', 'border-color', 'accent_color' );
 		self::generate_css( '#wp-calendar a', 'color', 'accent_color' );
 		self::generate_css( '#wp-calendar a:hover', 'color', 'accent_color' );
 		self::generate_css( '#wp-calendar tfoot a:hover', 'color', 'accent_color' );

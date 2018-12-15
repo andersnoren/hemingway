@@ -5,38 +5,60 @@
 
 /* Structure ---------------------------------------------- */
 
-
-.edit-post-visual-editor {
-	color: #444;
-	font-family: 'Lato', sans-serif;
+.block-editor__container .editor-styles-wrapper {
 	font-size: 19px;
 }
 
-body.gutenberg-editor-page .editor-post-title__block,
-body.gutenberg-editor-page .editor-default-block-appender,
-body.gutenberg-editor-page .editor-block-list__block {
+.editor-rich-text__tinymce {
+	color: #444;
+	font-family: 'Lato', sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+.editor-rich-text__tinymce * {
+	font-family: inherit !important;
+}
+
+.editor-styles-wrapper .editor-default-block-appender, 
+.editor-styles-wrapper .editor-block-list__block,
+.editor-styles-wrapper .editor-post-title__block {
     max-width: 676px;
 }
 
-body.gutenberg-editor-page .editor-block-list__block[data-align="wide"] {
+.editor-styles-wrapper .editor-block-list__block[data-align="wide"] {
     max-width: 756px;
 }
 
-body.gutenberg-editor-page .editor-block-list__block[data-align="full"] {
+.editor-styles-wrapper .editor-block-list__block[data-align="full"] {
     max-width: none;
+}
+
+.editor-styles-wrapper .editor-block-list__block[data-align="right"] .editor-block-list__block-edit,
+.editor-styles-wrapper .editor-block-list__block[data-align="left"] .editor-block-list__block-edit {
+    max-width: 50%;
+}
+
+.editor-styles-wrapper .editor-rich-text__tinymce,
+.editor-styles-wrapper .editor-rich-text__tinymce.mce-content-body {
+	line-height: 1.7;
 }
 
 
 /* Typography --------------------------------------------- */
 
 
-.edit-post-visual-editor a {
+.editor-post-title__block .editor-post-title__input {
+	font-family: 'Lato', sans-serif;
+	font-size: 2.36em;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.editor-styles-wrapper a {
 	color: #1abc9c;
 }
 
-.edit-post-visual-editor p,
-.editor-post-title__block .editor-post-title__input {
-	font-family: inherit;
+.block-editor__container .editor-styles-wrapper p {
 	font-size: inherit;
 }
 
@@ -47,7 +69,7 @@ body.gutenberg-editor-page .editor-block-list__block[data-align="full"] {
 .wp-block-heading h5,
 .wp-block-heading h6 {
 	font-weight: 700;
-	line-height: 1.2;
+	line-height: 1.2 !important;
 }
 
 .wp-block-heading h4,
@@ -67,12 +89,6 @@ body.gutenberg-editor-page .editor-block-list__block[data-align="full"] {
 	text-transform: uppercase;
 }
 
-.editor-post-title__block .editor-post-title__input {
-	font-size: 2.36em;
-	font-weight: 700;
-	line-height: 1.2;
-}
-
 p.has-drop-cap:not(:focus):first-letter {
     font-size: 6.3em;
     font-weight: 400;
@@ -82,9 +98,37 @@ p.has-drop-cap:not(:focus):first-letter {
 /* Custom Text Sizes -------------------------------------- */
 
 
-.edit-post-visual-editor p.has-large-font-size,
-.edit-post-visual-editor p.has-larger-font-size {
+.editor-styles-wrapper p.has-large-font-size,
+.editor-styles-wrapper p.has-large-font-size.mce-content-body,
+.editor-styles-wrapper p.has-larger-font-size,
+.editor-styles-wrapper p.has-larger-font-size.mce-content-body {
 	line-height: 1.5;
+}
+
+
+/* Monospace -------------------------------------- */
+
+.editor-styles-wrapper code, 
+.editor-styles-wrapper kbd, 
+.editor-styles-wrapper pre, 
+.editor-styles-wrapper samp {
+	font-family: Menlo, Monaco, monospace !important;
+}
+
+kbd,
+pre,
+samp {
+	background: #000;
+	border: none;
+	border-radius: 0;
+	color: #fff;
+	font-size: 16px;
+}
+
+pre {
+	background: #f1f1f1;
+	line-height: 1.4;
+	padding: 2% 2.5%;
 }
 
 
@@ -112,13 +156,13 @@ p.has-drop-cap:not(:focus):first-letter {
 	margin-left: 1em;
 }
 
-.wp-block-image figcaption {
+.editor-styles-wrapper figcaption {
 	font-size: 0.85em;
 	font-style: italic;
 }
 
 
-/* Table Block ---------------------------------------- */
+/* Block: Table ---------------------------------------- */
 
 
 table.wp-block-table {
@@ -143,15 +187,15 @@ table.wp-block-table thead + tbody {
 .wp-block-table td {
 	border: none;
 	border-bottom: 1px solid #DDD;
-	line-height: 120%;
+	line-height: 1.2;
 	margin: 0;
 	overflow: visible;
-	padding: 2%;
+	padding: 0;
 }
 
 .wp-block-table caption {
 	color: inherit;
-	padding: 2%;
+	padding: 0;
 	text-align: center;
 }
 
@@ -165,10 +209,14 @@ table.wp-block-table thead + tbody {
 	font-weight: bold;
 }
 
+.wp-block-table .wp-block-table__cell-content {
+	padding: 2%;
+}
+
 .wp-block-table tbody > tr:nth-child(odd) > td { background: #f9f9f9; }
 
 
-/* Separator Block ---------------------------------------- */
+/* Block: Separator ---------------------------------------- */
 
 
 hr.wp-block-separator {
@@ -195,7 +243,7 @@ hr.wp-block-separator {
 }
 
 
-/* File Block --------------------------------------------- */
+/* Block: File --------------------------------------------- */
 
 
 .wp-block-file {
@@ -216,60 +264,137 @@ hr.wp-block-separator {
 	text-decoration: none;
 }
 
-.wp-block-file__button {
+.wp-block-file .wp-block-file__button {
 	border-radius: 4px;
 	color: #fff;
 }
 
 
-/* Quote Block -------------------------------------------- */
+/* Block: Quote -------------------------------------------- */
 
+blockquote {
+	margin: 0;
+}
 
+.wp-block-quote {
+	background: #EEE;
+	clear: both;
+	color: #666;
+	display: block;
+	font-size: 1em;
+	font-style: normal;
+	font-weight: 400;
+	margin: 0;
+	padding: 1.1em;
+	position: relative;
+}
+
+.wp-block-quote,
+.wp-block-quote.is-large,
+.wp-block-quote.is-style-large,
 .wp-block-quote:not(.is-large):not(.is-style-large) {
 	border: none;
 	padding: 1.1em;
 }
 
-.wp-block-quote {
-	background: #eee;
-	border: none;
-	color: #666;
+.wp-block-quote .editor-rich-text__tinymce {
 	font-family: 'Raleway', 'Helvetica Neue', sans-serif;
-	line-height: 150%;
-	padding: 1.1em;
 }
 
-cite {
+cite,
+.wp-block-quote__citation,
+.wp-block-quote cite,
+.wp-block-quote footer,
+.wp-block-pullquote cite,
+.wp-block-pullquote .wp-block-pullquote__citation,
+.wp-block-quote.is-large cite, 
+.wp-block-quote.is-large footer, 
+.wp-block-quote.is-style-large cite, 
+.wp-block-quote.is-style-large footer {
 	color: #666;
+	font-family: 'Raleway', 'Helvetica Neue', sans-serif;
+	font-size: 0.7em;
 	font-weight: 700;
 	letter-spacing: 1px;
 	line-height: 140%;
 	text-transform: uppercase;
 }
 
-.wp-block-quote cite {
+cite:before,
+.wp-block-quote footer:before,
+.wp-block-quote__citation:before,
+.wp-block-pullquote__citation:before { 
+	content: "— "; 
+}
+
+.wp-block-quote.is-large, 
+.wp-block-quote.is-style-large {
+	font-size: 1.25em;
+}
+
+.wp-block-quote.is-large p, 
+.wp-block-quote.is-style-large p {
+	font-style: inherit;
+}
+
+.wp-block-quote.is-large cite, 
+.wp-block-quote.is-large footer, 
+.wp-block-quote.is-style-large cite, 
+.wp-block-quote.is-style-large footer {
 	font-size: .8em;
 }
 
-.wp-block-quote cite:before {
-	content: "— ";
-}
 
+/* Block: Pull Quote ---------------------------------------- */
 
-/* Pullquote Block ---------------------------------------- */
-
-
-.wp-block-pullquote cite {
-	font-size: .8em;
+.wp-block-pullquote {
+	border-bottom: 4px solid #444;
+	border-top: 4px solid #444;
+	color: #444;
+	font-family: 'Raleway', 'Helvetica Neue', sans-serif;
 	font-style: normal;
-	font-weight: 700;
+	margin: 0;
+	padding: 1em 0;
+	text-align: left;
+}
+
+.wp-block-pullquote .editor-rich-text__tinymce {
+	font-family: inherit;
+}
+
+.wp-block-pullquote.alignleft, 
+.wp-block-pullquote.alignright {
+	max-width: 50%;
+}
+
+.editor-styles-wrapper .wp-block-pullquote.alignleft p,
+.editor-styles-wrapper .wp-block-pullquote.alignright p {
+	font-size: 1.1em;
+	line-height: 1.45;
 }
 
 
-/* Button Block ------------------------------------------- */
+/* Block: Verse ---------------------------------------- */
+
+.wp-block-verse pre, 
+pre.wp-block-verse {
+	font-size: 16px;
+	padding: 2.5% 2%;
+}
+
+/* Block: Cover Image ---------------------------------------- */
+
+.editor-styles-wrapper .wp-block-cover p {
+	font-size: 2em;
+	font-weight: 400;
+}
 
 
-.wp-block-button .wp-block-button__link {
+/* Block: Button ------------------------------------------- */
+
+
+.wp-block-button .wp-block-button__link,
+.wp-block-button .wp-block-button__link.mce-content-body {
 	border-radius: 4px;
 	font-size: 0.9em;
 	line-height: 1.1;
