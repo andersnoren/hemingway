@@ -18,11 +18,11 @@ All theme specific options are handled through the WordPress Customizer.
 
 == Licenses ==
 
-Lato
+Lato Font
 License: SIL Open Font License, 1.1 
 Source: https://fonts.google.com/specimen/Lato
 
-Raleway
+Raleway Font
 License: SIL Open Font License, 1.1 
 Source: https://fonts.google.com/specimen/Raleway
 
@@ -88,6 +88,7 @@ Version 2.0.0 (2020-04-09)
 - Updated featured media to use HTML5 elements, and fixed markup structure issue with links in featured media captions.
 - Updated `singular.php`, ´template-fullwidth.php` and ´template-nosidebar.php` to use `content.php`, reducing duplicate code.
 - Better Block Editor styles.
+- Cleaned up the custom widgets.
 
 Version 1.75 (2019-04-07)
 -------------------------

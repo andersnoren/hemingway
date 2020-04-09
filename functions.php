@@ -141,7 +141,7 @@ endif;
 if ( ! function_exists( 'hemingway_add_editor_styles' ) ) :
 	function hemingway_add_editor_styles() {
 
-		add_editor_style( 'assets/css/hemingway-editor-style.css' );
+		add_editor_style( '/assets/css/hemingway-classic-editor-style.css' );
 
 		$google_fonts_url = hemingway_get_google_fonts_url();
 

@@ -2,9 +2,11 @@
 
 	<div class="post-header">
 
-		<?php hemingway_the_featured_media( $post ); ?>
-
-		<?php if ( get_the_title() ) : 
+		<?php 
+		
+		hemingway_the_featured_media( $post );
+		
+		if ( get_the_title() ) : 
 
 			$title_elem = is_singular() ? 'h1' : 'h2';
 		

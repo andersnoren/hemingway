@@ -92,14 +92,14 @@
 							<div class="bar"></div>
 							<div class="bar"></div>
 							<div class="bar"></div>
-							<span class="screen-reader-text"><?php _e( 'Toggle the mobile menu', 'hemingway' ); ?></span>
+							<span class="screen-reader-text"><?php _e( 'Toggle mobile menu', 'hemingway' ); ?></span>
 						</button>
 						
 						<button type="button" class="search-toggle toggle">
 							<div class="metal"></div>
 							<div class="glass"></div>
 							<div class="handle"></div>
-							<span class="screen-reader-text"><?php _e( 'Toggle the search field', 'hemingway' ); ?></span>
+							<span class="screen-reader-text"><?php _e( 'Toggle search field', 'hemingway' ); ?></span>
 						</button>
 											
 					</div><!-- .toggle-container -->
