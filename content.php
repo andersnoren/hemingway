@@ -1,62 +1,26 @@
-<div id="post-<?php the_ID(); ?>" <?php post_class( 'post-preview' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php 
+	<div class="post-header">
 
-	$post_format = get_post_format(); 
+		<?php hemingway_the_featured_media( $post ); ?>
 
-	if ( in_array( $post_format, array( 'video', 'aside', 'quote' ) ) ) : ?>
+		<?php if ( get_the_title() ) : 
 
-		<div class="post-meta">
-			
-			<span class="post-date"><a href="<?php the_permalink(); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></span>
-			
-			<?php if ( is_sticky() && !has_post_thumbnail() ) : ?> 
-				
-				<span class="date-sep"> / </span>
-			
-				<?php _e( 'Sticky', 'hemingway' ); ?>
-			
-			<?php endif; ?>
-			
-			<?php edit_post_link( __( 'Edit', 'hemingway' ), '<span class="date-sep"> / </span>' ); ?>
-									
-		</div><!-- .post-meta -->
+			$title_elem = is_singular() ? 'h1' : 'h2';
+		
+			?>
+		
+			<<?php echo $title_elem; ?> class="post-title entry-title">
+				<?php if ( ! is_singular() ) : ?>
+					<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+				<?php else : ?>
+					<?php the_title(); ?>
+				<?php endif; ?>
+			</<?php echo $title_elem; ?>>
 
-	<?php else : ?>
+		<?php endif; ?>
 
-		<div class="post-header">
-
-			<?php if ( has_post_thumbnail() ) : ?>
-
-				<div class="featured-media">
-				
-					<?php if ( is_sticky() ) : ?><span class="sticky-post"><?php _e( 'Sticky post', 'hemingway' ); ?></span><?php endif; ?>
-				
-					<a href="<?php the_permalink(); ?>" rel="bookmark">
-					
-						<?php
-						
-						the_post_thumbnail( 'post-image' );
-
-						$image_caption = get_post( get_post_thumbnail_id() )->post_excerpt;
-						
-						if ( $image_caption ) : ?>
-										
-							<div class="media-caption-container">
-							
-								<p class="media-caption"><?php echo $image_caption; ?></p>
-								
-							</div>
-							
-						<?php endif; ?>
-						
-					</a>
-							
-				</div><!-- .featured-media -->
-					
-			<?php endif; ?>
-			
-			<h2 class="post-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+		<?php if ( get_post_type() == 'post' ) : ?>
 			
 			<div class="post-meta">
 			
@@ -70,34 +34,87 @@
 				
 				<?php comments_popup_link( '<span class="comment">' . __( '0 Comments', 'hemingway' ) . '</span>', __( '1 Comment', 'hemingway' ), __( '% Comments', 'hemingway' ) ); ?>
 				
-				<?php if ( is_sticky() && !has_post_thumbnail() ) : ?> 
+				<?php if ( current_user_can( 'manage_options' ) ) : ?>
 				
 					<span class="date-sep"> / </span>
-				
-					<?php _e('Sticky', 'hemingway'); ?>
+								
+					<?php edit_post_link( __( 'Edit', 'hemingway' ) ); ?>
 				
 				<?php endif; ?>
-				
-				<?php edit_post_link( __( 'Edit', 'hemingway' ), '<span class="date-sep"> / </span>' ); ?>
 										
-			</div>
-			
-		</div><!-- .post-header -->
+			</div><!-- .post-meta -->
 
-	<?php endif; ?>
-
-	<?php if ( get_the_content() ) : ?>
+		<?php endif; ?>
+		
+	</div><!-- .post-header -->
 																					
-		<div class="post-content">
-			
-			<?php the_content(); ?>
-						
-			<?php wp_link_pages(); ?>
+	<div class="post-content entry-content">
+	
+		<?php
 
-		</div><!-- .post-content -->
+		if ( is_search() ) {
+			the_excerpt();
+		} else {
+			the_content(); 
+		}
 
-	<?php endif; ?>
+		wp_link_pages( array(
+			'before'           => '<nav class="post-nav-links"><span class="label">' . __( 'Pages:', 'hemingway' ) . '</span>',
+			'after'            => '</nav>',
+		) );
+
+		edit_post_link( __( 'Edit', 'hemingway' ), '<p>', '</p>' ); 
+
+		?>
+							
+	</div><!-- .post-content -->
 				
-	<div class="clear"></div>
+	<?php if ( is_single() ) : ?>
+	
+		<div class="post-meta-bottom">
+															
+			<p class="post-categories"><span class="category-icon"><span class="front-flap"></span></span> <?php the_category( ', ' ); ?></p>
+			
+			<?php if ( has_tag() ) : ?>
+				<p class="post-tags"><?php the_tags( '', '' ); ?></p>
+			<?php endif; ?>
+			
+			<?php
 
-</div><!-- .post -->
+			$prev_post = get_previous_post();
+			$next_post = get_next_post();
+
+			if ( $prev_post || $next_post ) : ?>
+									
+				<nav class="post-nav group">
+											
+					<?php if ( $prev_post ) : ?>
+						<a class="post-nav-older" href="<?php the_permalink( $prev_post->ID ); ?>">
+							<h5><?php _e( 'Previous post', 'hemingway' ); ?></h5>
+							<?php echo get_the_title( $prev_post->ID ); ?>
+						</a>
+					<?php endif; ?>
+					
+					<?php if ( $next_post ) : ?>
+						<a class="post-nav-newer" href="<?php the_permalink( $next_post->ID ); ?>">
+							<h5><?php _e( 'Next post', 'hemingway' ); ?></h5>
+							<?php echo get_the_title( $next_post->ID ); ?>
+						</a>
+					<?php endif; ?>
+
+				</nav><!-- .post-nav -->
+
+			<?php endif; ?>
+								
+		</div><!-- .post-meta-bottom -->
+
+		<?php
+	endif;
+
+	if ( is_singular() ) {
+		comments_template( '', true );
+	}
+
+	?>
+
+</article><!-- .post -->
