@@ -993,6 +993,7 @@ input[type="submit"]:hover {
 .post-preview.format-quote .post-content blockquote {
 	background: none;
 	color: #fff;
+	font-family: 'Raleway', 'Helvetica Neue', sans-serif;
 	padding: 0;
 	font-size: 1.25em;
 	margin-bottom: 0;
