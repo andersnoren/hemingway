@@ -5,8 +5,11 @@
 		<?php 
 		
 		hemingway_the_featured_media( $post );
-		
-		if ( get_the_title() ) : 
+
+		$post_format = get_post_format();
+
+		// On archive, only output the title on posts without a post format.
+		if ( get_the_title() && ( is_singular() || ! $post_format ) ) : 
 
 			$title_elem = is_singular() ? 'h1' : 'h2';
 		
@@ -21,6 +24,7 @@
 			</<?php echo $title_elem; ?>>
 
 			<?php 
+
 		endif;
 
 		do_action( 'hemingway_before_post_meta', $post->ID );

@@ -2,7 +2,7 @@
 Contributors: Anlino
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 4.5
-Tested up to: 5.4
+Tested up to: 5.4.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -40,6 +40,12 @@ Source: http://www.unsplash.com
 
 
 == Changelog ==
+
+Version 2.0.2 (2020-05-04)
+-------------------------
+- Fixed the title being displayed for post formats on archive pages when it shouldn't be (thanks, @daimonialisch).
+- Fixed the style of the `cite` element in the quote post format having been unintentionally changed in 2.0.0 (thanks again).
+- Bumped "Tested up to" to 5.4.1.
 
 Version 2.0.1 (2020-04-22)
 -------------------------
