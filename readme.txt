@@ -43,9 +43,11 @@ Source: http://www.unsplash.com
 
 Version 2.0.2 (2020-05-04)
 -------------------------
-- Fixed the title being displayed for post formats on archive pages when it shouldn't be (thanks, @daimonialisch).
+- Fixed the title and featured image being displayed for post formats on archive pages when it shouldn't be (thanks, @daimonialisch).
 - Fixed the style of the `cite` element in the quote post format having been unintentionally changed in 2.0.0 (thanks again).
+- Adjusted the font size of the cite element in quote blocks with the large style.
 - Tweaked blockquote margins.
+- Block editor styles: Fixed the block appender paragraph having the wrong font family.
 - Bumped "Tested up to" to 5.4.1.
 
 Version 2.0.1 (2020-04-22)

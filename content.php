@@ -3,27 +3,31 @@
 	<div class="post-header">
 
 		<?php 
-		
-		hemingway_the_featured_media( $post );
 
 		$post_format = get_post_format();
 
-		// On archive, only output the title on posts without a post format.
-		if ( get_the_title() && ( is_singular() || ! $post_format ) ) : 
-
-			$title_elem = is_singular() ? 'h1' : 'h2';
+		// On archive, only output the featured image and title on posts without a post format.
+		if ( ( is_singular() || ! $post_format ) ) :
 		
-			?>
-		
-			<<?php echo $title_elem; ?> class="post-title entry-title">
-				<?php if ( ! is_singular() ) : ?>
-					<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-				<?php else : ?>
-					<?php the_title(); ?>
-				<?php endif; ?>
-			</<?php echo $title_elem; ?>>
+			hemingway_the_featured_media( $post );
 
-			<?php 
+			if ( get_the_title() ) : 
+
+				$title_elem = is_singular() ? 'h1' : 'h2';
+			
+				?>
+			
+				<<?php echo $title_elem; ?> class="post-title entry-title">
+					<?php if ( ! is_singular() ) : ?>
+						<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+					<?php else : ?>
+						<?php the_title(); ?>
+					<?php endif; ?>
+				</<?php echo $title_elem; ?>>
+
+				<?php 
+
+			endif;
 
 		endif;
 

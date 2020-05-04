@@ -23,7 +23,6 @@
     max-width: 50%;
 }
 
-
 /* Typography -------------------------------- */
 
 .editor-post-title__block .editor-post-title__input {
@@ -31,6 +30,11 @@
 	font-size: 45px;
 	font-weight: 700;
 	line-height: 1.2;
+}
+
+.block-editor-default-block-appender textarea.block-editor-default-block-appender__content {
+	font-family: inherit;
+	font-size: inherit;
 }
 
 .editor-styles-wrapper .editor-block-list__layout a,
