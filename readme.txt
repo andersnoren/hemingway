@@ -45,6 +45,7 @@ Version 2.0.2 (2020-05-04)
 -------------------------
 - Fixed the title being displayed for post formats on archive pages when it shouldn't be (thanks, @daimonialisch).
 - Fixed the style of the `cite` element in the quote post format having been unintentionally changed in 2.0.0 (thanks again).
+- Tweaked blockquote margins.
 - Bumped "Tested up to" to 5.4.1.
 
 Version 2.0.1 (2020-04-22)

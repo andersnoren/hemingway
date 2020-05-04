@@ -1006,6 +1006,7 @@ input[type="submit"]:hover {
 .post-preview.format-quote .post-content blockquote cite {
 	color: rgba( 255, 255, 255, 0.75 );
 	display: block;
+	font-size: 16px;
 	font-weight: 400;
 	text-align: center;
 }
@@ -1570,7 +1571,7 @@ blockquote {
 	margin-top: 1em;
 }
 
-.post-content blockquote > *:last-child {
+.post-content blockquote p:last-of-type {
 	margin-bottom: 0;
 }
 
