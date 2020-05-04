@@ -421,6 +421,22 @@ endif;
 
 
 /*	-----------------------------------------------------------------------------------------------
+	CHECK IF POST TYPE SHOULD DISPLAY POST META
+	Check whether the specified post type should display the post meta in the post header.
+--------------------------------------------------------------------------------------------------- */
+
+if ( ! function_exists( 'hemingway_post_type_has_post_meta_output' ) ) :
+	function hemingway_post_type_has_post_meta_output( $post_type ) {
+
+		$post_types_with_meta = apply_filters( 'hemingway_post_types_with_post_meta_output', array( 'post' ) );
+
+		return in_array( $post_type, $post_types_with_meta );
+
+	}
+endif;
+
+
+/*	-----------------------------------------------------------------------------------------------
 	OUTPUT FEATURED MEDIA
 --------------------------------------------------------------------------------------------------- */
 

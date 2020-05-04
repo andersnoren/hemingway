@@ -4,7 +4,7 @@
 
 	Theme Name: Hemingway
     Text Domain: hemingway
-	Version: 2.0.0
+	Version: 2.0.1
 	Description: Hemingway is a clean, beautiful and responsive two-column theme for bloggers. Features responsive design, retina-ready assets, Block Editor/Gutenberg support, full-width header image with parallax scrolling effect, custom accent color, custom logo upload, custom Flickr and Dribbble widgets, page templates, and editor styles. Demo: https://www.andersnoren.se/themes/hemingway/
 	Tags: blog, two-columns, right-sidebar, custom-colors, custom-header, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, block-styles
 	Author: Anders Norén
@@ -591,6 +591,8 @@ input[type="submit"]:hover {
 
 .blog-logo { 
 	display: inline-block; 
+	line-height: 1;
+	margin: 0;
 }
 
 .blog-logo a,
@@ -1354,6 +1356,11 @@ input[type="submit"]:hover {
 }
 
 /* Block: Image ------------------------------ */
+/* Block: Media & Text ----------------------- */
+
+.wp-block-media-text__content > *:first-child { margin-top: 0; }
+.wp-block-media-text__content > *:last-child { margin-bottom: 0; }
+
 /* Block: Pull Quote ------------------------- */
 
 .post-content .wp-block-pullquote {

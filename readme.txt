@@ -41,6 +41,13 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 2.0.1 (2020-04-22)
+-------------------------
+- Media & Text block: Removed top margin of first item, and bottom margin of last item.
+- Post meta: Added a filter for setting which post types should display post meta (defaults to post).
+- Post meta: Added actions before and after post meta output.
+- Post meta: Don't output the comments link if comments are closed.
+
 Version 2.0.0 (2020-04-09)
 -------------------------
 - Added "block-styles" to the theme tags in `style.css`.

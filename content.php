@@ -20,9 +20,15 @@
 				<?php endif; ?>
 			</<?php echo $title_elem; ?>>
 
-		<?php endif; ?>
+			<?php 
+		endif;
 
-		<?php if ( get_post_type() == 'post' ) : ?>
+		do_action( 'hemingway_before_post_meta', $post->ID );
+
+		$post_type = get_post_type();
+		$post_type_outputs_post_meta = hemingway_post_type_has_post_meta_output( $post_type );
+		
+		if ( $post_type_outputs_post_meta ) : ?>
 			
 			<div class="post-meta">
 			
@@ -31,10 +37,14 @@
 				<span class="date-sep"> / </span>
 					
 				<span class="post-author"><?php the_author_posts_link(); ?></span>
+
+				<?php if ( comments_open() ) : ?>
+
+					<span class="date-sep"> / </span>
 				
-				<span class="date-sep"> / </span>
-				
-				<?php comments_popup_link( '<span class="comment">' . __( '0 Comments', 'hemingway' ) . '</span>', __( '1 Comment', 'hemingway' ), __( '% Comments', 'hemingway' ) ); ?>
+					<?php comments_popup_link( '<span class="comment">' . __( '0 Comments', 'hemingway' ) . '</span>', __( '1 Comment', 'hemingway' ), __( '% Comments', 'hemingway' ) ); ?>
+
+				<?php endif; ?>
 				
 				<?php if ( current_user_can( 'manage_options' ) ) : ?>
 				
@@ -46,7 +56,12 @@
 										
 			</div><!-- .post-meta -->
 
-		<?php endif; ?>
+			<?php 
+		endif; 
+		
+		do_action( 'hemingway_after_post_meta', $post->ID );
+		
+		?>
 		
 	</div><!-- .post-header -->
 																					
@@ -71,11 +86,15 @@
 							
 	</div><!-- .post-content -->
 				
-	<?php if ( is_single() ) : ?>
+	<?php if ( is_singular() && $post_type_outputs_post_meta ) : ?>
 	
 		<div class="post-meta-bottom">
+
+			<?php if ( get_the_category() ) : ?>
 															
-			<p class="post-categories"><span class="category-icon"><span class="front-flap"></span></span> <?php the_category( ', ' ); ?></p>
+				<p class="post-categories"><span class="category-icon"><span class="front-flap"></span></span> <?php the_category( ', ' ); ?></p>
+	
+			<?php endif; ?>
 			
 			<?php if ( has_tag() ) : ?>
 				<p class="post-tags"><?php the_tags( '', '' ); ?></p>
