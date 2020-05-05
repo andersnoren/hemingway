@@ -41,6 +41,11 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 2.0.3 (2020-05-05)
+-------------------------
+- Updated the targeting of styles removing the padding, margin and border of the last post/page, to account for code added after the closing body tag.
+- Added the `.clear` selector to the clearfix styles, to account for cached markup and markup in child themes.
+
 Version 2.0.2 (2020-05-04)
 -------------------------
 - Fixed the title and featured image being displayed for post formats on archive pages when it shouldn't be (thanks, @daimonialisch).
