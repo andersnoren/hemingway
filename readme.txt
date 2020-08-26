@@ -46,6 +46,7 @@ Version 2.1.0 (2020-08-26)
 -------------------------
 - Removed the Dribbble and Flickr widgets, since both of the APIs these widgets relied on for data are being removed.
 - Updated the theme description to remove mentions of said widgets.
+- Fixed the attachment page showing neither the image nor the image dimensions (thanks, @mathiasblogs).
 - Added escaping of the header image URL.
 - Added "Requires PHP" theme meta to readme.txt.
 - Added "Requires PHP" and "Tested up to" theme meta to style.css.
