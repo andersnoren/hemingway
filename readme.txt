@@ -42,6 +42,11 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 2.1.2 (2021-05-05)
+-------------------------
+- Fixed issue with duplicate #s IDs when having multiple search forms by switching to the HTML5 markup version of the form, and updated search styles targeting accordingly.
+- Added the wide-blocks style.css theme tag.
+
 Version 2.1.1 (2021-04-26)
 -------------------------
 - A11y: Added skip link, changed the .wrapper element to use the main element and gave it the site-content id.
