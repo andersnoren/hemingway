@@ -132,6 +132,30 @@ endif;
 
 
 /* ---------------------------------------------------------------------------------------------
+   FILTER BODY CLASS
+   --------------------------------------------------------------------------------------------- */
+
+if ( ! function_exists( 'hemingway_body_class' ) ) :
+	function hemingway_body_class( $classes ) {
+
+		// Check if we're showing the sidebar on mobile.
+		if ( get_theme_mod( 'hemingway_show_sidebar_on_mobile', false ) ) {
+			$classes[] = 'show-sidebar-on-mobile';
+		}
+
+		// Slim page template class names (class = name - file suffix).
+		if ( is_page_template() ) {
+			$classes[] = basename( get_page_template_slug(), '.php' );
+		}
+
+		return $classes;
+
+	}
+	add_filter( 'body_class', 'hemingway_body_class' );
+endif;
+
+
+/* ---------------------------------------------------------------------------------------------
    ADD EDITOR STYLES
    --------------------------------------------------------------------------------------------- */
 
