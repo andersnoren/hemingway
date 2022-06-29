@@ -162,13 +162,7 @@ endif;
 if ( ! function_exists( 'hemingway_add_editor_styles' ) ) :
 	function hemingway_add_editor_styles() {
 
-		add_editor_style( '/assets/css/hemingway-classic-editor-style.css' );
-
-		$google_fonts_url = hemingway_get_google_fonts_url();
-
-		if ( $google_fonts_url ) {
-			add_editor_style( str_replace( ',', '%2C', $google_fonts_url ) );
-		}
+		add_editor_style( array( 'assets/css/hemingway-classic-editor-style.css', 'assets/css/fonts.css' ) );
 
 	}
 	add_action( 'init', 'hemingway_add_editor_styles' );
@@ -183,24 +177,7 @@ endif;
 if ( ! function_exists( 'hemingway_get_google_fonts_url' ) ) :
 	function hemingway_get_google_fonts_url() {
 
-		/**
-		 * Translators: If there are characters in your language that are not
-		 * supported by the theme fonts, translate this to 'off'. Do not translate
-		 * into your own language.
-		 */
-		$google_fonts = _x( 'on', 'Google Fonts: on or off', 'hemingway' );
-
-		if ( 'off' === $google_fonts ) return;
-
-		$font_families = apply_filters( 'hemingway_google_fonts_families', array( 'Lato:400,700,400italic,700italic|Raleway:400,700' ) );
-
-		$query_args = array(
-			'family' => urlencode( implode( '|', $font_families ) )
-		);
-
-		$fonts_url = add_query_arg( $query_args, '//fonts.googleapis.com/css' );
-
-		return $fonts_url;
+		return get_stylesheet_directory_uri() . '/assets/css/fonts.css';
 
 	}
 endif;
@@ -621,7 +598,7 @@ if ( ! function_exists( 'hemingway_block_editor_styles' ) ) :
 		$google_fonts_url = hemingway_get_google_fonts_url();
 
 		if ( $google_fonts_url ) {
-			wp_register_style( 'hemingway-block-editor-styles-font', $google_fonts_url, false, 1.0, 'all' );
+			wp_register_style( 'hemingway-block-editor-styles-font', $google_fonts_url );
 			$dependencies[] = 'hemingway-block-editor-styles-font';
 		}
 
