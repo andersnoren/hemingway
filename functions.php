@@ -177,7 +177,7 @@ endif;
 if ( ! function_exists( 'hemingway_get_google_fonts_url' ) ) :
 	function hemingway_get_google_fonts_url() {
 
-		return get_stylesheet_directory_uri() . '/assets/css/fonts.css';
+		return get_theme_file_uri( '/assets/css/fonts.css' );
 
 	}
 endif;
