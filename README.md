@@ -2,7 +2,7 @@
 
 Hemingway is a clean and beautiful two-column theme for bloggers. It features a responsive design, retina-ready assets, Block Editor support, full-width header image with parallax scrolling effect, custom accent color settings, custom logo upload, and editor styles.
 
-![Hemingway](https://github.com/andersnoren/hemingway/blob/main/screenshot.png)
+![Hemingway](https://github.com/andersnoren/hemingway/blob/master/screenshot.jpg)
 
 You can download the latest stable release of Hemingway [from WordPress.org](https://wordpress.org/themes/hemingway/).
 
