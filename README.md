@@ -25,4 +25,4 @@ Do you want to support the continued development of Hemingway? You can send me a
 
 ## Resources
 - [About Hemingway](https://andersnoren.se/teman/hemingway-wordpress-theme/)
-- [Hemingway demo site](https://andersnoren.se/themes/hemingway/)
+- [Hemingway demo site](https://hemingway.andersnoren.se)
