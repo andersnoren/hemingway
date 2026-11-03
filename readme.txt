@@ -24,6 +24,12 @@ Hemingway is a clean and beautiful two-column theme for bloggers. It features a 
 All theme specific options are handled through the WordPress Customizer.
 
 
+== Copyright ==
+
+Hemingway WordPress Theme, Copyright 2014-2026 Anders Norén
+Hemingway is distributed under the terms of the GNU GPL.
+
+
 == Licenses ==
 
 Lato Font
@@ -36,15 +42,15 @@ Source: https://fonts.google.com/specimen/Raleway
 
 Default header image included in the theme
 License: CC0 Public Domain 
-Source: http://www.unsplash.com
+Source: Unsplash (added before the 2017 change to the Unsplash license, when its photos were released under CC0)
 
 screenshot.png header image
 License: CC0 Public Domain 
-Source: http://www.unsplash.com
+Source: Unsplash (added before the 2017 change to the Unsplash license, when its photos were released under CC0)
 
 screenshot.png post image 
 License: CC0 Public Domain 
-Source: http://www.unsplash.com
+Source: Unsplash (added before the 2017 change to the Unsplash license, when its photos were released under CC0)
 
 
 == Frequently Asked Questions ==
@@ -57,6 +63,11 @@ Open an issue in the Hemingway GitHub repository: https://github.com/andersnoren
 
 
 == Changelog ==
+
+Version 2.3.4 (2026-11-03)
+-------------------------
+- Added a copyright notice to the readme.
+- Updated the image source notes in the readme.
 
 Version 2.3.3 (2026-11-03)
 -------------------------
@@ -565,5 +576,5 @@ Version 1 (2014-01-31)
 
 == Upgrade Notice ==
 
-= 2.3.3 =
+= 2.3.4 =
 Tested with WordPress 7.1. Fixes the block editor styles in the iframed editor and improves keyboard accessibility.
